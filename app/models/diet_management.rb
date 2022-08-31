@@ -1,0 +1,2 @@
+class DietManagement < ApplicationRecord
+end

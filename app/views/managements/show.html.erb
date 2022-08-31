@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @management.user_id %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @management.category.name %>
+</p>
+
+<p>
+  <strong>Menu:</strong>
+  <%= @management.menu %>
+</p>
+
+<%= link_to 'Edit', edit_management_path(@management) %> |
+<%= link_to 'Back', managements_path %>
