@@ -2,7 +2,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @management.user_id %>
+  <%= @management.user.name %>
 </p>
 
 <p>
@@ -15,5 +15,9 @@
   <%= @management.menu %>
 </p>
 
-<%= link_to 'Edit', edit_management_path(@management) %> |
-<%= link_to 'Back', managements_path %>
+
+<% if user_signed_in? && @management.user_id == current_user.id %>
+<%= link_to 'Delete', @management, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+  <%= link_to 'Edit', edit_management_path(@management), class: 'btn btn-primary' %>
+<% end %>
+<%= link_to 'Back', managements_path, class: 'btn btn-default' %>

@@ -10,6 +10,9 @@
   </head>
 
   <body>
+  <% if user_signed_in? %>
+    Logged in as <strong><%= current_user.name %></strong>.
+  <% end %>
   <!-- Fixed navbar -->
   <nav class='navbar navbar-inverse navbar-fixed-top'>
     <div class='container'>
