@@ -1,23 +1,40 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="justify-content-center">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class= "text-center">
+          <p id="notice"><%= notice %></p>
+          <div class="form-group">
+            <p>
+              <strong>User:</strong>
+              <%= @management.user.name %>
+            </p>
+          </div>
+          
+          <div class="form-group">
+            <p>
+              <strong>Category:</strong>
+              <%= @management.category.name %>
+            </p>
+          </div>
+          
+          <div class="form-group">
+            <p>
+              <strong>Menu:</strong>
+              <%= @management.menu %>
+            </p>
+          </div>
+          
+          
+          <% if user_signed_in? && @management.user_id == current_user.id %>
+          <%= link_to 'Delete', @management, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+            <%= link_to 'Edit', edit_management_path(@management), class: 'btn btn-primary' %>
+          <% end %>
+          <%= link_to 'Back', managements_path, class: 'btn btn-default' %>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>User:</strong>
-  <%= @management.user.name %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @management.category.name %>
-</p>
-
-<p>
-  <strong>Menu:</strong>
-  <%= @management.menu %>
-</p>
-
-
-<% if user_signed_in? && @management.user_id == current_user.id %>
-<%= link_to 'Delete', @management, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-  <%= link_to 'Edit', edit_management_path(@management), class: 'btn btn-primary' %>
-<% end %>
-<%= link_to 'Back', managements_path, class: 'btn btn-default' %>
