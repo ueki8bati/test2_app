@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :managements
+  resources :managements do
+    resource :favorites, only: [:create, :destroy]
+  end
   resources :diet_managements
   resources :categories
   devise_for :users

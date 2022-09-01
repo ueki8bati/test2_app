@@ -1,5 +1,6 @@
 class ManagementsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!
+
   before_action :set_management, only: %i[ show edit update destroy ]
 
   # GET /managements or /managements.json

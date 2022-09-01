@@ -24,6 +24,16 @@
               <%= @management.menu %>
             </p>
           </div>
+          <% if current_user.already_favorited?(@management) %>
+            <%= link_to management_favorites_path(@management), method: :delete do %>
+              <i class="fas fa-heart"></i>
+            <% end %>
+          <% else %>
+            <%= link_to management_favorites_path(@management), method: :post do %>
+              <i class="far fa-heart"></i>
+            <% end %>
+          <% end %>
+          <%= @management.favorites.count %>
           
           
           <% if user_signed_in? && @management.user_id == current_user.id %>
